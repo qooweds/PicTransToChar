@@ -15,7 +15,23 @@ def get_char(r,g,b,alpha = 256):
 parser = argparse.ArgumentParser()
 
 parser.add_argument("file")
+parser.add_argument("-o", "--output")
+parser.add_argument("--height", type = int, default=80)
+parser.add_argument("--width", type = int, default=80)
 
 args = parser.parse_args()
+IMG = args.file
+OUTPUT = args.output
+HEIGHT = args.height
+WIDTH = args.width
 
-#print args
+
+if __name__ == '__main__':
+    img = Image.open(args.file)
+    img = img.resize((WIDTH, HEIGHT), Image.NEAREST)
+
+    txt=''
+
+    for i in range(HEIGHT):
+        for j in range(WIDTH):
+            txt +=
