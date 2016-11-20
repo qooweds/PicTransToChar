@@ -30,8 +30,11 @@ if __name__ == '__main__':
     img = Image.open(args.file)
     img = img.resize((WIDTH, HEIGHT), Image.NEAREST)
 
-    txt=''
+    txt = ""
 
     for i in range(HEIGHT):
         for j in range(WIDTH):
-            txt += get_char()
+            txt += get_char(*img.getpixel(j, i))
+        txt += '\n'
+
+    print(txt)
